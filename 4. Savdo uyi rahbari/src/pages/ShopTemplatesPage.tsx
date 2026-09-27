@@ -1,0 +1,250 @@
+import { Loader2, Plus, Search } from 'lucide-react'
+import { motion } from 'motion/react'
+import { useCallback, useEffect, useState } from 'react'
+import { TemplateFormModal } from '../components/shop-catalog/TemplateFormModal'
+import { ConfirmModal } from '../components/ui/ConfirmModal'
+import { ImageThumb } from '../components/ui/ImageLightbox'
+import { TableActions } from '../components/ui/TableActions'
+import { ViewModal } from '../components/ui/ViewModal'
+import { APP_COLOR } from '../constants/config'
+import { auditFields } from '../lib/audit'
+import { ApiError } from '../lib/api'
+import { catalogImageSrc, createShopTemplate, deleteShopTemplate, listShopTemplates, updateShopTemplate } from '../lib/shopCatalog'
+import type { ShopTemplateForm, ShopTemplateItem } from '../types/shopCatalog'
+import { toast } from '../lib/snack'
+
+export function ShopTemplatesPage() {
+  const [items, setItems] = useState<ShopTemplateItem[]>([])
+  const [loading, setLoading] = useState(true)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [appliedSearch, setAppliedSearch] = useState('')
+  const [page, setPage] = useState(1)
+  const [total, setTotal] = useState(0)
+  const [formOpen, setFormOpen] = useState(false)
+  const [editing, setEditing] = useState<ShopTemplateItem | null>(null)
+  const [viewing, setViewing] = useState<ShopTemplateItem | null>(null)
+  const [saving, setSaving] = useState(false)
+  const [deleteTarget, setDeleteTarget] = useState<ShopTemplateItem | null>(null)
+  const [deleting, setDeleting] = useState(false)
+
+  const load = useCallback(async () => {
+    try {
+      const data = await listShopTemplates({ page, limit: 20, q: appliedSearch })
+      setItems(data.items ?? [])
+      setTotal(data.total)
+    } catch (err) {
+      if (!(err instanceof ApiError)) toast.error('Yuklab bo‘lmadi')
+    } finally {
+      setLoading(false)
+    }
+  }, [page, appliedSearch])
+
+  useEffect(() => {
+    setLoading(true)
+    void load()
+  }, [load])
+
+  async function handleSubmit(payload: ShopTemplateForm) {
+    setSaving(true)
+    try {
+      if (editing) await updateShopTemplate(editing.id, payload)
+      else await createShopTemplate(payload)
+      await load()
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  async function confirmDelete() {
+    if (!deleteTarget) return
+    setDeleting(true)
+    try {
+      await deleteShopTemplate(deleteTarget.id)
+      setDeleteTarget(null)
+      await load()
+    } catch (err) {
+      if (!(err instanceof ApiError)) toast.error('O‘chirib bo‘lmadi')
+      setDeleteTarget(null)
+    } finally {
+      setDeleting(false)
+    }
+  }
+
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mx-auto max-w-6xl space-y-6">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <h2 className="text-2xl font-bold text-slate-900">Mahsulot shablonlari</h2>
+          <p className="mt-1 text-sm text-slate-500">Mahalla do‘konlari shu shablonlardan mahsulot biriktiradi</p>
+        </div>
+        <button
+          type="button"
+          onClick={() => {
+            setEditing(null)
+            setFormOpen(true)
+          }}
+          className="inline-flex items-center justify-center gap-2 self-start rounded-xl px-3.5 py-2.5 text-sm font-semibold text-white"
+          style={{ backgroundColor: APP_COLOR }}
+        >
+          <Plus size={16} />
+          Qo‘shish
+        </button>
+      </div>
+
+      <div className="rounded-2xl border border-slate-200 bg-white p-4">
+        <div className="relative">
+          <span className="pointer-events-none absolute inset-y-0 left-0 flex w-10 items-center justify-center text-slate-400">
+            <Search size={18} />
+          </span>
+          <input
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                setPage(1)
+                setAppliedSearch(searchTerm.trim())
+              }
+            }}
+            placeholder="Shablon nomi..."
+            className="w-full rounded-xl border border-slate-200 py-2.5 pr-4 pl-10 text-sm outline-none focus:border-slate-400"
+          />
+        </div>
+      </div>
+
+      {loading ? (
+        <div className="flex h-64 items-center justify-center rounded-2xl border border-slate-200 bg-white">
+          <Loader2 className="animate-spin" size={28} style={{ color: APP_COLOR }} />
+        </div>
+      ) : items.length === 0 ? (
+        <p className="rounded-2xl border border-slate-200 bg-white py-12 text-center text-slate-500">Shablonlar topilmadi</p>
+      ) : (
+        <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+          <table className="min-w-full text-left text-sm">
+            <thead className="bg-slate-50 text-slate-500">
+              <tr>
+                <th className="px-4 py-3 font-medium">Rasm</th>
+                <th className="px-4 py-3 font-medium">Shablon</th>
+                <th className="px-4 py-3 font-medium">Kategoriya</th>
+                <th className="px-4 py-3 font-medium">Birlik</th>
+                <th className="px-4 py-3 text-right font-medium">Amallar</th>
+              </tr>
+            </thead>
+            <tbody>
+              {items.map((item) => (
+                <tr key={item.id} className="border-t border-slate-100">
+                  <td className="px-4 py-3">
+                    {item.images?.[0] ? (
+                      <ImageThumb
+                        src={catalogImageSrc(item.images[0])}
+                        images={item.images.map((src) => catalogImageSrc(src))}
+                        className="h-12 w-12 rounded-lg object-cover"
+                      />
+                    ) : (
+                      <span className="block h-12 w-12 rounded-lg bg-slate-100" />
+                    )}
+                  </td>
+                  <td className="px-4 py-3 font-medium text-slate-900">{item.name}</td>
+                  <td className="px-4 py-3 text-slate-700">
+                    {item.category_name} / {item.subcategory_name}
+                  </td>
+                  <td className="px-4 py-3 text-slate-700">
+                    {item.unit} × {item.unit_size}
+                  </td>
+                  <td className="px-4 py-3">
+                    <TableActions
+                      onView={() => setViewing(item)}
+                      onEdit={() => {
+                        setEditing(item)
+                        setFormOpen(true)
+                      }}
+                      onDelete={() => setDeleteTarget(item)}
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      <div className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm">
+        <p className="text-slate-600">
+          Jami: <span className="font-semibold text-slate-900">{total}</span>
+        </p>
+        <div className="flex gap-2">
+          <button type="button" disabled={page <= 1} onClick={() => setPage((v) => v - 1)} className="rounded-xl border border-slate-200 px-3 py-2 disabled:opacity-50">
+            Oldingi
+          </button>
+          <button type="button" disabled={items.length < 20} onClick={() => setPage((v) => v + 1)} className="rounded-xl border border-slate-200 px-3 py-2 disabled:opacity-50">
+            Keyingi
+          </button>
+        </div>
+      </div>
+
+      {viewing ? (
+        <ViewModal
+          title="Mahsulot shabloni"
+          fields={[
+            { label: 'Nomi', value: viewing.name },
+            { label: 'Tavsif', value: viewing.description },
+            { label: 'Kategoriya', value: `${viewing.category_name} / ${viewing.subcategory_name}` },
+            { label: 'Birlik', value: `${viewing.unit} × ${viewing.unit_size}` },
+            {
+              label: 'Rasmlar',
+              value: viewing.images?.length ? (
+                <div className="flex flex-wrap gap-2">
+                  {viewing.images.map((src) => (
+                    <ImageThumb
+                      key={src}
+                      src={catalogImageSrc(src)}
+                      images={viewing.images.map((item) => catalogImageSrc(item))}
+                      className="h-16 w-16 rounded-lg object-cover"
+                    />
+                  ))}
+                </div>
+              ) : (
+                'Yo‘q'
+              ),
+            },
+            ...auditFields(viewing.audit),
+          ]}
+          onClose={() => setViewing(null)}
+          onEdit={() => {
+            setEditing(viewing)
+            setViewing(null)
+            setFormOpen(true)
+          }}
+        />
+      ) : null}
+
+      {formOpen ? (
+        <TemplateFormModal
+          key={editing?.id ?? 'new'}
+          item={editing}
+          saving={saving}
+          onClose={() => {
+            if (!saving) {
+              setFormOpen(false)
+              setEditing(null)
+            }
+          }}
+          onSubmit={handleSubmit}
+        />
+      ) : null}
+
+      <ConfirmModal
+        open={Boolean(deleteTarget)}
+        title="Shablonni o‘chirish"
+        onClose={() => {
+          if (!deleting) setDeleteTarget(null)
+        }}
+        onConfirm={() => {
+          void confirmDelete()
+        }}
+        loading={deleting}
+      >
+        <strong>{deleteTarget?.name}</strong> o‘chirilsinmi?
+      </ConfirmModal>
+    </motion.div>
+  )
+}

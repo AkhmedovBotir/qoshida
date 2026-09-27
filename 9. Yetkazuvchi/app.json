@@ -1,0 +1,30 @@
+{
+  "name": "qoshida-yetkazuvchi",
+  "displayName": "Yetkazuvchi",
+  "slug": "qoshida-yetkazuvchi",
+  "version": "0.0.1",
+  "orientation": "portrait",
+  "icon": "./assets/images/icon.png",
+  "scheme": "qoshida-yetkazuvchi",
+  "userInterfaceStyle": "automatic",
+  "splash": {
+    "image": "./assets/images/splash.png",
+    "resizeMode": "contain",
+    "backgroundColor": "#C2410C"
+  },
+  "ios": {
+    "bundleIdentifier": "uz.qoshida.yetkazuvchi",
+    "supportsTablet": true
+  },
+  "android": {
+    "package": "uz.qoshida.yetkazuvchi",
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/images/adaptive-icon.png",
+      "backgroundColor": "#C2410C"
+    }
+  },
+  "web": {
+    "favicon": "./assets/images/favicon.svg",
+    "bundler": "vite"
+  }
+}

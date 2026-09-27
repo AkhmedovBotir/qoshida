@@ -1,0 +1,30 @@
+{
+  "name": "qoshida-mijoz",
+  "displayName": "Mijoz",
+  "slug": "qoshida-mijoz",
+  "version": "0.0.1",
+  "orientation": "portrait",
+  "icon": "./assets/images/icon.png",
+  "scheme": "qoshida-mijoz",
+  "userInterfaceStyle": "automatic",
+  "splash": {
+    "image": "./assets/images/splash.png",
+    "resizeMode": "contain",
+    "backgroundColor": "#2E5D90"
+  },
+  "ios": {
+    "bundleIdentifier": "uz.qoshida.mijoz",
+    "supportsTablet": true
+  },
+  "android": {
+    "package": "uz.qoshida.mijoz",
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/images/adaptive-icon.png",
+      "backgroundColor": "#2E5D90"
+    }
+  },
+  "web": {
+    "favicon": "./assets/images/favicon.svg",
+    "bundler": "vite"
+  }
+}

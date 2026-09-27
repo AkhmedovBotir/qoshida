@@ -1,0 +1,30 @@
+{
+  "name": "qoshida-sotuvchi",
+  "displayName": "Sotuvchi",
+  "slug": "qoshida-sotuvchi",
+  "version": "0.0.1",
+  "orientation": "portrait",
+  "icon": "./assets/images/icon.png",
+  "scheme": "qoshida-sotuvchi",
+  "userInterfaceStyle": "automatic",
+  "splash": {
+    "image": "./assets/images/splash.png",
+    "resizeMode": "contain",
+    "backgroundColor": "#15803D"
+  },
+  "ios": {
+    "bundleIdentifier": "uz.qoshida.sotuvchi",
+    "supportsTablet": true
+  },
+  "android": {
+    "package": "uz.qoshida.sotuvchi",
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/images/adaptive-icon.png",
+      "backgroundColor": "#15803D"
+    }
+  },
+  "web": {
+    "favicon": "./assets/images/favicon.svg",
+    "bundler": "vite"
+  }
+}

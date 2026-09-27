@@ -1,0 +1,30 @@
+{
+  "name": "qoshida-menejer",
+  "displayName": "Menejer",
+  "slug": "qoshida-menejer",
+  "version": "0.0.1",
+  "orientation": "portrait",
+  "icon": "./assets/images/icon.png",
+  "scheme": "qoshida-menejer",
+  "userInterfaceStyle": "automatic",
+  "splash": {
+    "image": "./assets/images/splash.png",
+    "resizeMode": "contain",
+    "backgroundColor": "#B45309"
+  },
+  "ios": {
+    "bundleIdentifier": "uz.qoshida.menejer",
+    "supportsTablet": true
+  },
+  "android": {
+    "package": "uz.qoshida.menejer",
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/images/adaptive-icon.png",
+      "backgroundColor": "#B45309"
+    }
+  },
+  "web": {
+    "favicon": "./assets/images/favicon.svg",
+    "bundler": "vite"
+  }
+}

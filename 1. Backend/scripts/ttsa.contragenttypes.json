@@ -1,0 +1,225 @@
+[{
+  "_id": {
+    "$oid": "69569da144cf7f7cf949e426"
+  },
+  "name": "Elektronika va maishiy texnika",
+  "icon": "Devices",
+  "status": "active",
+  "createdAt": {
+    "$date": "2026-01-01T16:15:29.548Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-01T16:15:29.548Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69569e0744cf7f7cf949e42c"
+  },
+  "name": "Kiyim-kechak, oyoq kiyim va aksessuarlar",
+  "icon": "DryCleaning",
+  "status": "active",
+  "createdAt": {
+    "$date": "2026-01-01T16:17:11.260Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-01T16:17:11.260Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69569e2344cf7f7cf949e432"
+  },
+  "name": "Ta'mirlash buyumlari",
+  "icon": "Handyman",
+  "status": "active",
+  "createdAt": {
+    "$date": "2026-01-01T16:17:39.145Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-01T16:17:39.145Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69569f8f44cf7f7cf949e438"
+  },
+  "name": "Mebel va uy-ro'zg'or buyumlari",
+  "icon": "Inventory2",
+  "status": "active",
+  "createdAt": {
+    "$date": "2026-01-01T16:23:43.546Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-01T16:23:43.546Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6956a00a44cf7f7cf949e43e"
+  },
+  "name": "Zargarlik buyumlari",
+  "icon": "Watch",
+  "status": "active",
+  "createdAt": {
+    "$date": "2026-01-01T16:25:46.979Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-01T16:25:46.979Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6956a02544cf7f7cf949e444"
+  },
+  "name": "Sog'liq",
+  "icon": "HealthAndSafety",
+  "status": "active",
+  "createdAt": {
+    "$date": "2026-01-01T16:26:13.173Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-01T16:26:13.173Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6956a09944cf7f7cf949e44b"
+  },
+  "name": "Bolalar",
+  "icon": "ChildCare",
+  "status": "active",
+  "createdAt": {
+    "$date": "2026-01-01T16:28:09.233Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-01T16:30:32.855Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6956a0c144cf7f7cf949e451"
+  },
+  "name": "Ko'ngil ochar va dam olish",
+  "icon": "BeachAccess",
+  "status": "active",
+  "createdAt": {
+    "$date": "2026-01-01T16:28:49.967Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-01T16:28:49.967Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6956a0d544cf7f7cf949e457"
+  },
+  "name": "Kafe va restoranlar",
+  "icon": "LocalBar",
+  "status": "active",
+  "createdAt": {
+    "$date": "2026-01-01T16:29:09.118Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-01T16:29:09.118Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6956a0f144cf7f7cf949e45d"
+  },
+  "name": "Ta'lim",
+  "icon": "School",
+  "status": "active",
+  "createdAt": {
+    "$date": "2026-01-01T16:29:37.473Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-01T16:29:49.333Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6956a11e44cf7f7cf949e468"
+  },
+  "name": "Mahsulotlar",
+  "icon": "ShoppingBasket",
+  "status": "active",
+  "createdAt": {
+    "$date": "2026-01-01T16:30:22.153Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-01T16:30:22.153Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6956a14b44cf7f7cf949e473"
+  },
+  "name": "Sport",
+  "icon": "FitnessCenter",
+  "status": "active",
+  "createdAt": {
+    "$date": "2026-01-01T16:31:07.176Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-01T16:31:07.176Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6956a18444cf7f7cf949e479"
+  },
+  "name": "Kosmetika va parfyumeriya",
+  "icon": "ShoppingBag",
+  "status": "active",
+  "createdAt": {
+    "$date": "2026-01-01T16:32:04.141Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-01T16:32:04.141Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6956a1b944cf7f7cf949e4a5"
+  },
+  "name": "Avto",
+  "icon": "LocalTaxi",
+  "status": "active",
+  "createdAt": {
+    "$date": "2026-01-01T16:32:57.988Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-01T16:32:57.988Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6956a1d544cf7f7cf949e4e1"
+  },
+  "name": "Turizm",
+  "icon": "Pool",
+  "status": "active",
+  "createdAt": {
+    "$date": "2026-01-01T16:33:25.329Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-01T16:33:25.329Z"
+  },
+  "__v": 0
+}]

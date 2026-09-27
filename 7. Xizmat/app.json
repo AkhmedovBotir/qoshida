@@ -1,0 +1,30 @@
+{
+  "name": "qoshida-xizmat",
+  "displayName": "Xizmat ko'rsatuvchi",
+  "slug": "qoshida-xizmat",
+  "version": "0.0.1",
+  "orientation": "portrait",
+  "icon": "./assets/images/icon.png",
+  "scheme": "qoshida-xizmat",
+  "userInterfaceStyle": "automatic",
+  "splash": {
+    "image": "./assets/images/splash.png",
+    "resizeMode": "contain",
+    "backgroundColor": "#0369A1"
+  },
+  "ios": {
+    "bundleIdentifier": "uz.qoshida.xizmat",
+    "supportsTablet": true
+  },
+  "android": {
+    "package": "uz.qoshida.xizmat",
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/images/adaptive-icon.png",
+      "backgroundColor": "#0369A1"
+    }
+  },
+  "web": {
+    "favicon": "./assets/images/favicon.svg",
+    "bundler": "vite"
+  }
+}

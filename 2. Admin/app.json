@@ -1,0 +1,30 @@
+{
+  "name": "qoshida-admin",
+  "displayName": "Admin",
+  "slug": "qoshida-admin",
+  "version": "0.0.1",
+  "orientation": "portrait",
+  "icon": "./assets/images/icon.png",
+  "scheme": "qoshida-admin",
+  "userInterfaceStyle": "automatic",
+  "splash": {
+    "image": "./assets/images/splash.png",
+    "resizeMode": "contain",
+    "backgroundColor": "#1E3A5F"
+  },
+  "ios": {
+    "bundleIdentifier": "uz.qoshida.admin",
+    "supportsTablet": true
+  },
+  "android": {
+    "package": "uz.qoshida.admin",
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/images/adaptive-icon.png",
+      "backgroundColor": "#1E3A5F"
+    }
+  },
+  "web": {
+    "favicon": "./assets/images/favicon.svg",
+    "bundler": "vite"
+  }
+}

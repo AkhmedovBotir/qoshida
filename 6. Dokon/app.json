@@ -1,0 +1,30 @@
+{
+  "name": "qoshida-dokon",
+  "displayName": "Do'kon",
+  "slug": "qoshida-dokon",
+  "version": "0.0.1",
+  "orientation": "portrait",
+  "icon": "./assets/images/icon.png",
+  "scheme": "qoshida-dokon",
+  "userInterfaceStyle": "automatic",
+  "splash": {
+    "image": "./assets/images/splash.png",
+    "resizeMode": "contain",
+    "backgroundColor": "#0F766E"
+  },
+  "ios": {
+    "bundleIdentifier": "uz.qoshida.dokon",
+    "supportsTablet": true
+  },
+  "android": {
+    "package": "uz.qoshida.dokon",
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/images/adaptive-icon.png",
+      "backgroundColor": "#0F766E"
+    }
+  },
+  "web": {
+    "favicon": "./assets/images/favicon.svg",
+    "bundler": "vite"
+  }
+}

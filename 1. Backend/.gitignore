@@ -1,0 +1,10 @@
+.bin
+.env
+*.exe
+*.log
+coverage.out
+vendor
+.idea
+.vscode
+uploads/categories/*
+!uploads/categories/.gitkeep

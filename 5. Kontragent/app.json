@@ -1,0 +1,30 @@
+{
+  "name": "qoshida-kontragent",
+  "displayName": "Kontragent",
+  "slug": "qoshida-kontragent",
+  "version": "0.0.1",
+  "orientation": "portrait",
+  "icon": "./assets/images/icon.png",
+  "scheme": "qoshida-kontragent",
+  "userInterfaceStyle": "automatic",
+  "splash": {
+    "image": "./assets/images/splash.png",
+    "resizeMode": "contain",
+    "backgroundColor": "#7C3AED"
+  },
+  "ios": {
+    "bundleIdentifier": "uz.qoshida.kontragent",
+    "supportsTablet": true
+  },
+  "android": {
+    "package": "uz.qoshida.kontragent",
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/images/adaptive-icon.png",
+      "backgroundColor": "#7C3AED"
+    }
+  },
+  "web": {
+    "favicon": "./assets/images/favicon.svg",
+    "bundler": "vite"
+  }
+}

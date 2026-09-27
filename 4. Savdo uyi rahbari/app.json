@@ -1,0 +1,30 @@
+{
+  "name": "qoshida-savdo-uyi-rahbari",
+  "displayName": "Savdo uyi rahbari",
+  "slug": "qoshida-savdo-uyi-rahbari",
+  "version": "0.0.1",
+  "orientation": "portrait",
+  "icon": "./assets/images/icon.png",
+  "scheme": "qoshida-savdo-uyi-rahbari",
+  "userInterfaceStyle": "automatic",
+  "splash": {
+    "image": "./assets/images/splash.png",
+    "resizeMode": "contain",
+    "backgroundColor": "#BE123C"
+  },
+  "ios": {
+    "bundleIdentifier": "uz.qoshida.savdo",
+    "supportsTablet": true
+  },
+  "android": {
+    "package": "uz.qoshida.savdo",
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/images/adaptive-icon.png",
+      "backgroundColor": "#BE123C"
+    }
+  },
+  "web": {
+    "favicon": "./assets/images/favicon.svg",
+    "bundler": "vite"
+  }
+}
